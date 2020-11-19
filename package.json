@@ -1,7 +1,11 @@
 {
   "name": "apod-chrome",
   "version": "0.1.0",
+  "author": {
+    "name": "Zak White"
+  },
   "private": true,
+  "homepage": "https://github.com/zakwht/apod-chrome",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -20,10 +24,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node build.js && react-scripts build",
     "test": "react-scripts test",
-    "prettier": "npx prettier --write \"src/**/*.{ts,tsx,scss}\"",
-    "lint": "npx typescript --noEmit --skipLibCheck -p ./tsconfig.json"
+    "format": "npx prettier --write \"src/**/*.{ts,tsx,scss}\""
   },
   "eslintConfig": {
     "extends": "react-app"

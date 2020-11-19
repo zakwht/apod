@@ -38,23 +38,18 @@ export const APOD: React.FC = () => {
         setApodHistory(res);
       });
     const storedHistory: IAPODHistory = JSON.parse(cached);
-    if (new Date().getDate() - new Date(storedHistory.timestamp).getDate())
-      getLatest((res: IAPODResponse[]) => {
-        console.log(new Date().getDate());
-        console.log(new Date(storedHistory.timestamp).getDate());
-        updatePhoto(res[res.length - 1]);
-        setApodHistory(res);
-      });
-    else {
+    if (new Date().getDate() - new Date(storedHistory.timestamp).getDate()) {
       updatePhoto(storedHistory.data[storedHistory.data.length - 1]);
-      setApodHistory(storedHistory.data);
+      return getLatest(setApodHistory);
     }
+    updatePhoto(storedHistory.data[storedHistory.data.length - 1]);
+    setApodHistory(storedHistory.data);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const storedSettings = localStorage.getItem("APODSettings");
     if (!storedSettings) return;
-    const parsedSettings = JSON.parse(storedSettings);
+    const parsedSettings: ISettings = JSON.parse(storedSettings);
     setSettings(parsedSettings);
     if (parsedSettings.disableTransitions) {
       document.documentElement.style.setProperty("--transition-delay-1", "0s");
