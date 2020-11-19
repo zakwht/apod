@@ -53,7 +53,7 @@ export const SettingsPanel: React.FC<ISettingsPanelProps> = ({
       <label>
         <span>Background</span>
         <select onChange={handleSelectBackground} value={settings.background}>
-          <option value="auto">Auto</option>
+          <option value="initial">Auto</option>
           <option value="cover">Fit</option>
           <option value="contain">Fill</option>
         </select>

@@ -15,7 +15,7 @@ export interface IAPODHistory {
 }
 
 export interface ISettings {
-  background?: "cover" | "contain" | "auto";
+  background?: "cover" | "contain" | "initial";
   disableTransitions?: boolean;
   disableTransparency?: boolean;
 }

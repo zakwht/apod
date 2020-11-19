@@ -11,7 +11,7 @@ export const APOD: React.FC = () => {
   const [panelOpen, setPanelOpen] = useState(false);
   const [fade, setFade] = useState(false);
   const [settings, setSettings] = React.useState<ISettings>({
-    background: "auto",
+    background: "initial",
     disableTransitions: false,
     disableTransparency: false
   });
@@ -72,8 +72,8 @@ export const APOD: React.FC = () => {
         <img
           src={apod.url}
           alt={apod.title}
-          className={`APOD ${settings.background}`}
-          style={fade ? { opacity: 0 } : {}}
+          className="APOD"
+          style={{ opacity: fade ? 0 : 1, objectFit: settings.background }}
           onWheel={handleWheel}
         />
       ) : (
