@@ -72,7 +72,7 @@ export const APOD: React.FC = () => {
         <img
           src={apod.url}
           alt={apod.title}
-          className="APOD"
+          className="APOD noSelect"
           style={{ opacity: fade ? 0 : 1, objectFit: settings.background }}
           onWheel={handleWheel}
         />

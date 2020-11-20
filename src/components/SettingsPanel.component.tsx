@@ -1,6 +1,6 @@
 import React from "react";
 import { ISettings } from "../types";
-import { NasaLogo } from "./NasaLogo.component";
+import NASA from "../NASA.svg";
 
 export interface ISettingsPanelProps {
   settings: ISettings;
@@ -81,7 +81,7 @@ export const SettingsPanel: React.FC<ISettingsPanelProps> = ({
         </div>
       </label>
       <a href="https://apod.nasa.gov/apod/" className="nasaLogo">
-        <NasaLogo />
+        <img src={NASA} alt="NASA" className="noSelect"/>
       </a>
     </div>
   );
