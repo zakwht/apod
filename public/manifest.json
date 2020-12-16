@@ -4,16 +4,16 @@
   "name": "NASA Astronomy Photo of the Day",
   "short_name": "NASA APOD",
   "description": "NASO APOD description line goes here!",
+  "homepage_url": "https://github.com/zakwht/apod-chrome",
   "version": "0.1.0",
   "author": "Zak White",
-  "default_locale": "en",
   "icons": {
     "16": "icons/icon16.png"
   },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "content_security_policy": "script-src 'self' 'sha256-FZxaW1MeXCv95aSYqdkbCfy68Bwz5WPM1Tq2z/Q126k='; object-src 'self'",
+  "content_security_policy": "script-src 'self'; object-src 'self'",
   "permissions": [
     "activeTab",
     "declarativeContent",
