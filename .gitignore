@@ -9,3 +9,4 @@
 
 # OSX
 .DS_Store 
+/scripts/test.js

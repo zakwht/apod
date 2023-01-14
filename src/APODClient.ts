@@ -8,6 +8,14 @@ const sendRequest = (url: string, onLoad: (req: XMLHttpRequest) => void) => {
   req.onload = () => onLoad(req);
 };
 
+// interface RBody<T> {
+//   status: number;
+//   body: T;
+// }
+
+// const apodRequest = <T>(url: string): Promise<RBody<T>> =>
+//   fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY${url}`).then(async (res: Response) => ({status: res.status, body: await res.json()}));
+
 //Get 30 latest photos
 export const getLatest = (callback: (state: IAPODResponse[]) => void) => {
   const todayPDT = new Date().getTime() - 7 * 60 * 60 * 1000;
@@ -15,8 +23,16 @@ export const getLatest = (callback: (state: IAPODResponse[]) => void) => {
   const endQuery = new Date(todayPDT).toISOString().slice(0, 10);
   const startQuery = new Date(monthAgoPDT).toISOString().slice(0, 10);
 
+  // apodRequest<IAPODResponse>(`&start_date=${startQuery}&end_date=${endQuery}`)
+  //   .then(({status, body}) => {
+  //     return status === 200
+  //       ? body
+  //       : samplePhotos[Math.floor(Math.random() * samplePhotos.length)]
+  //   })
+
   sendRequest(
     `&start_date=${startQuery}&end_date=${endQuery}`,
+    //req? lol. it's a response.
     (req: XMLHttpRequest) => {
       const response: IAPODResponse[] =
         req.status === 200

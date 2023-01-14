@@ -278,9 +278,20 @@ iframe {
 
 .placeholder {
   background-color: #000;
-  width: 100%;
-  height: 100%;
-  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.placeholder p {
+  inset: 0;
+  position: absolute;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-direction: column;
 }
 
 .noSelect {

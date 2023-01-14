@@ -4,6 +4,7 @@ import { IAPODHistory, IAPODResponse, ISettings } from "../types";
 import { Label } from "./Label.component";
 import { Panel } from "./Panel.component";
 import { getLatest, getRandom } from "../APODClient";
+import { Placeholder } from "./Placeholder.component";
 
 export const APOD: React.FC = () => {
   const [apodHistory, setApodHistory] = useState<IAPODResponse[]>([]);
@@ -17,6 +18,7 @@ export const APOD: React.FC = () => {
   });
 
   const updatePhoto = (newAPOD: IAPODResponse) => {
+    if (newAPOD.media_type === "video") return setApod(newAPOD);
     setFade(!settings.disableTransitions);
     const img = new Image();
     img.src = newAPOD.url;
@@ -42,7 +44,7 @@ export const APOD: React.FC = () => {
       updatePhoto(storedHistory.data[storedHistory.data.length - 1]);
       return getLatest(setApodHistory);
     }
-    updatePhoto(storedHistory.data[storedHistory.data.length - 1]);
+    setApod(storedHistory.data[storedHistory.data.length - 1]);
     setApodHistory(storedHistory.data);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -63,7 +65,7 @@ export const APOD: React.FC = () => {
     if (Math.abs(e.deltaX) > 12) setPanelOpen(e.deltaX > 0);
   };
 
-  if (!apod) return <div className="placeholder" />;
+  if (!apod) return <Placeholder />;
 
   return (
     <>
@@ -82,6 +84,7 @@ export const APOD: React.FC = () => {
           title={apod.title}
           width="96%"
           height="100%"
+          style={{height: "100vh"}}
         ></iframe>
       )}
       <Panel
