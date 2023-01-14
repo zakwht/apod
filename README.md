@@ -1,23 +1,20 @@
-## ![](./public/icons/icon16.png "apod-chrome") Astronomy Picture of the Day Extension
+# Astronomy Picture of the Day Browser Extension
 
+[![License](https://img.shields.io/github/license/zakwht/apod)](/LICENSE)
+[![Style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-Chrome extension designed to showcase NASA's Astronomy Picture of the Day using their [open API](https://api.nasa.gov/#apod).
+Browser extension designed to showcase NASA's Astronomy Picture of the Day.
 
-### Getting Started
+![Screenshot](./screenshot.png)
+
+### Development
 
 #### Requirements
-- [Node.js](https://nodejs.org/en/) v12.x or greater
-- Chrome (latest version)
+* Node v12+ (built with 12.14.1)
 
-```
-git clone the repo
-npm install
-npm start
-```
+#### Scripts
+* `start`: runs the app in development mode
+* `build`: builds the app for production. See [Chrome docs](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked) for loading steps.
 
-### Build
-
-- Run ```npm run build```
-- Go to the extensions dashboard (chrome://extensions)
-- Toggle developer mode
-- Load the unpacked extension, pointing to the `build` directory
+### Acknowledgments
+* __Designed with images retrieved from__ NASA's open [APOD API](https://api.nasa.gov/#apod)
